@@ -1,9 +1,11 @@
 <?php
+
 /**
- * O comando sql será automatizado e haverá trait para fazer isto
- * A Entidade será automatizada
- *
+ * AgileQuery é um api de persistência para agilização de processos de persistẽnica
+ * Como o próprio nome diz ágil - visa agilizar processos simples de persistência
+ * Esta Api abstrai a classe PDO
  */
+
 include "Conn.php";
 include "SqlCmd.php";
 
