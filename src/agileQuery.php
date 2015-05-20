@@ -11,8 +11,8 @@ namespace \API;
 
 class agileQuery {
 
-	use Conn;
-	use CommandSQL;
+	use Conn\Conn;
+	use CommandSQL\SqlCmd;
 	
 	protected $entity;
 
