@@ -1,13 +1,14 @@
 <?php
 include "src/agileQuery.php";
 
-use agileQuery as agileQuery;
+use Api\agileQuery as agile;
 
 class aluno  {
-		
+			
 	public function Alunos() {
 		//$result = $this->simple_select(array('id', 'nome', 'telefone', 'email'));
-		$result = $this->select("select * from aluno order by nome asc");
+		$obj = new agile();
+		$result = $obj->select("select * from aluno order by nome asc");
 		return $result;
 	}
 

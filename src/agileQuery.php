@@ -7,7 +7,9 @@
  * Foi desenvolvida para agilizar persistência e eliminar redundàncias como setar entidade
  * , conexão e drivers
  * Esta Api abstrai a classe PDO
- */
+ */ 
+
+namespace Api;
 
 
 include "Conn.php";
@@ -16,11 +18,10 @@ include "SqlCmd.php";
 use Connection\Conn;
 use CommandSQL\SqlCmd;
 
-namespace agileQuery;
-
 class agileQuery {
-	
-	
+
+
+		
 	protected $entity;
 
 	public function setentity($entity) 
