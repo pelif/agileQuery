@@ -3,7 +3,7 @@
 /**
  * Classe para conexão e configurações de db
  */
-namespace Conn;
+namespace Connection;
 
 class Conn {
 	protected $host;
@@ -20,12 +20,12 @@ class Conn {
 	 */
 	public function open($name) {
 		
-		if (!file_exists($name.".ini")):
+		if (!file_exists("../config/" . $name.".ini")):
 			throw new Excepcion("Arquivo $name não encontrado!");
 			die;
 		endif;
 		
-		$db = parse_ini_file($name.".ini");
+		$db = parse_ini_file("../config/" . $name.".ini");
 
 		$this->host       = $db['host'];
 		$this->port       = $db['port'];

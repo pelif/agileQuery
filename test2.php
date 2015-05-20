@@ -1,8 +1,10 @@
 <?php
-include 'agileQuery.php';
+include "src/agileQuery.php";
 
-class aluno extends agileQuery {
+use agileQuery as agileQuery;
 
+class aluno  {
+		
 	public function Alunos() {
 		//$result = $this->simple_select(array('id', 'nome', 'telefone', 'email'));
 		$result = $this->select("select * from aluno order by nome asc");
@@ -21,9 +23,10 @@ $post = array(
 
 $obj = new aluno;
 
+/*
 $obj->insert($post);
-
 $obj->update(array('nome' => 'Miesiks Tokoyama', 'email' => 'tokoyama'), array('id' => 68));
+*/
 
 var_dump($obj->Alunos());
 

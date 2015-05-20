@@ -1,32 +1,40 @@
 <?php
 
+
 /**
- * AgileQuery é um api de persistência para agilização de processos de persistẽnica
- * Como o próprio nome diz ágil - visa agilizar processos simples de persistência
+ * AgileQuery é um api de persistência para agilização de processos de persistẽnica.
+ * Como o próprio nome diz ágil - visa agilizar processos simples de persistência. 
+ * Foi desenvolvida para agilizar persistência e eliminar redundàncias como setar entidade
+ * , conexão e drivers
  * Esta Api abstrai a classe PDO
  */
+
 
 include "Conn.php";
 include "SqlCmd.php";
 
-namespace \API; 
+use Connection\Conn;
+use CommandSQL\SqlCmd;
+
+namespace agileQuery;
 
 class agileQuery {
-
-	use Conn\Conn;
-	use CommandSQL\SqlCmd;
+	
 	
 	protected $entity;
 
-	public function setentity($entity) {
+	public function setentity($entity) 
+	{
 		$this->entity = $entity;
 	}
 
-	public function getentity() {
+	public function getentity() 
+	{
 		return $this->entity;
 	}
 
-	public function __construct() {
+	public function __construct() 
+	{
 		$this->connect();
 	}
 
