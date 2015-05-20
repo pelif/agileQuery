@@ -7,7 +7,7 @@ class SqlCmd {
 
 	public static function getSQL() {
 		return self::$sql;
-	}
+	}   
 
 	/**
 	 * Monta a sentença Select do SQL
