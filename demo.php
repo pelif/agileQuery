@@ -1,34 +1,18 @@
 <?php
 
 /**
- * Este cara seria o seu MODEL
- * @author felipe
- *
+ * Esta é uma implementação simplória, os dados estão no próprio model
+ * Ao implementar isso em um projeto os dados viriam de Request e response
  */
 
-include "Api/agileQuery.php";
+require_once 'aluno.php';
 
-use Api\agileQuery as agileQuery;
+use Model\aluno as Aluno_Model;
 
-class aluno  extends agileQuery {
-			
-	public function Alunos() {
-		$result = $this->select("select * from aluno order by nome asc");
-		return $result;
-	}
+$Aluno = new Aluno_Model;
 
-}
+$Aluno->InsertAluno(); // Insere aluno
 
-$post = array(
-	'nome'     => 'RAFAEL DANIEL DE OLIVEIRA',
-	'endereco' => 'RUA MACACO LAS VEGAS, 1333',
-	'telefone' => '(11) 3446-6464',
-	'cidade'   => 'SÃO CARLOS',
-	'email'    => 'mark.markoli@gmail.com',
-);
+$Aluno->deleteAluno(80); //Deleta Aluno
 
-$obj = new aluno;
-
-var_dump($obj->Alunos());
-
-?>
+var_dump($Aluno->Alunos()); //Lista Alunos inseridos

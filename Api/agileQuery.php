@@ -18,15 +18,16 @@ use \PDO as PDO;
 use CommandSQL\SqlCmd as SqlCmd;
 
 
-class agileQuery  {
+class agileQuery {
 	
 	use Conn;
 	
 	protected $entity;
 
-	public function setentity($entity) 
+	public function setentity($namespace) 
 	{
-		$this->entity = $entity;
+		$arr = explode("\\", $namespace);
+		$this->entity = $arr[sizeof($arr) - 1];
 	}
 
 	public function getentity() 
@@ -48,6 +49,8 @@ class agileQuery  {
 		$this->setentity(get_class($this));
 		$dbh = $this->conn;
 		$sth = $dbh->prepare(SqlCmd::InsertMount($this->getentity(), $arr));
+		//var_dump($dbh->prepare(SqlCmd::InsertMount($this->getentity(), $arr))); exit;
+		
 		if (is_array($arr)) {
 			foreach ($arr as $key => $value) {
 				$sth->bindValue(":".$key."", $value);
@@ -118,7 +121,7 @@ class agileQuery  {
 	public function delete($validKey) {
 		$this->setentity(get_class($this));
 		$dbh = $this->conn;
-		$sth = $dbh->prepare(SqlCmd::DeleteMount($$this->getentity(), $validKey));
+		$sth = $dbh->prepare(SqlCmd::DeleteMount($this->getentity(), $validKey));
 		if (is_array($validKey)) {
 			foreach ($validKey as $k => $v) {
 				if (is_string($v)) {
