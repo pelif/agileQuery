@@ -1,0 +1,19 @@
+{
+    "name": "agileQuery/agileQuery",
+    "type": "Api",
+    "description": "Api de persistência de dados",
+    "keywords": ["Persistência","Agilizar persistência"],
+    "homepage": "https://github.com/pelif/agileQuery",
+    "license": "",
+    "authors": [
+        {
+            "name": "Felipe Daniel",
+            "email": "felipe.radicaislivres@gmail.com",
+            "homepage": "",
+            "role": "Programmer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
