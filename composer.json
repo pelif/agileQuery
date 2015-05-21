@@ -1,5 +1,5 @@
 {
-    "name": "agileQuery",
+    "name": "agile-query",
     "type": "Api",
     "description": "Api de persistência de dados",
     "keywords": ["Persistência","Agilizar persistência"],
