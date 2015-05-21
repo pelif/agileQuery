@@ -3,9 +3,11 @@
 /**
  * Classe para conexão e configurações de db
  */
-namespace Connection;
+namespace Api;
 
-class Conn {
+use \PDO as PDO;
+
+trait Conn {
 	protected $host;
 	protected $port;
 	protected $user;
@@ -20,12 +22,12 @@ class Conn {
 	 */
 	public function open($name) {
 		
-		if (!file_exists("../config/" . $name.".ini")):
-			throw new Excepcion("Arquivo $name não encontrado!");
-			die;
+		if (!file_exists("config/" . $name.".ini")):
+			//throw new Excepcion("Arquivo $name não encontrado!");
+			die('Arquivo $name não encontrado!');
 		endif;
 		
-		$db = parse_ini_file("../config/" . $name.".ini");
+		$db = parse_ini_file("config/" . $name.".ini");
 
 		$this->host       = $db['host'];
 		$this->port       = $db['port'];

@@ -11,17 +11,17 @@
 
 namespace Api;
 
-
 include "Conn.php";
 include "SqlCmd.php";
 
-use Connection\Conn;
-use CommandSQL\SqlCmd;
-
-class agileQuery {
+use \PDO as PDO;
+use CommandSQL\SqlCmd as SqlCmd;
 
 
-		
+class agileQuery  {
+	
+	use Conn;
+	
 	protected $entity;
 
 	public function setentity($entity) 
