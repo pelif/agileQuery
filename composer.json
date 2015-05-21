@@ -1,8 +1,8 @@
 {
     "name": "agilequery/agilequery",
     "type": "Api",
-    "description": "Api de persistência de dados",
-    "keywords": ["Persistência","Agilizar persistência"],
+    "description": "Api de persistencia de dados",
+    "keywords": ["Persistencia","persistencia"],
     "homepage": "https://github.com/pelif/agileQuery",
     "license": "",
     "authors": [
