@@ -1,6 +1,13 @@
 <?php
 
-namespace core\Db\agileQuery;
+/*
+* @author Felipe Daniel de Oliveira
+* @name SqlCmd
+* Monta os statement sql para consulta
+*
+*/
+
+namespace Db\agileQuery;
 
 class SqlCmd {
 
@@ -11,7 +18,11 @@ class SqlCmd {
 	}
 
 	/**
-	 * Monta a sentença Select do SQL
+	 * @param string $entity
+	 * @param array $arr
+	 * @param array $valids
+	 * @param array $order
+	 * @return string
 	 */
 	public static function SelectMount($entity, array $arr, $valids = null, array $order = null) {
 		self::$sql = "SELECT ";
@@ -36,8 +47,12 @@ class SqlCmd {
 		return self::$sql;
 	}
 
+
+
 	/**
-	 * GERA Instrução Insert
+	 * @param string $entity
+	 * @param array $arr
+	 * @return string
 	 */
 	public static function InsertMount($entity, $arr) {
 		//$this->sql = "INSERT INTO ".get_class($this)." ( ";
@@ -57,8 +72,13 @@ class SqlCmd {
 		return self::$sql;
 	}
 
+
+
 	/**
-	 * Gera Instrução Update
+	 * @param string $entity
+	 * @param array $arr
+	 * @param array $valids
+	 * @return string
 	 */
 	public static function UpdateMount($entity, $arr, $valids) {
 		self::$sql = "UPDATE {$entity} SET ";
@@ -77,8 +97,12 @@ class SqlCmd {
 
 	}
 
+
+
 	/**
-	 * Gera a instrução de DELETE no SQL
+	 * @param string $entity
+	 * @param array $keys
+	 * @return string
 	 */
 	public function DeleteMount($entity, $keys) {
 		self::$sql = "DELETE FROM {$entity} ";

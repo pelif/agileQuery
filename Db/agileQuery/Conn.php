@@ -3,7 +3,7 @@
 /**
  * Classe para conexão e configurações de db
  */
-namespace core\Db\agileQuery;
+namespace Db\agileQuery;
 
 use \PDO as PDO;
 
@@ -18,11 +18,12 @@ class Conn {
 	protected $conn = null;
 
 	/**
-	 * Pega as configurações de conexão cmo banco de dados
+	 * @param string $name
+	 * @return void
 	 */
 	public function open($name) {
 
-		$path_file = ROOT . "/core/Db/";
+		$path_file = ROOT . "Db/";
 
 		if (!file_exists($path_file . $name.".ini")):
 			//throw new Excepcion("Arquivo $name não encontrado!");
@@ -38,15 +39,14 @@ class Conn {
 		$this->type       = $db['type'];
 	}
 
+
 	/**
-	 * Faz a conexão utilizando PDO
-	 * Factory em conexões
+	 * @return Object PDO Connection
 	 */
 	public function connect() {
 
 		$this->open('mysql');
-		//var_dump($this);
-		//exit;
+
 		try
 		{
 			switch ($this->type):
