@@ -1,9 +1,9 @@
 # agileQuery
 
-É uma api de persistência desenvolvida em PHP. Esta Api provê abstração de persistência de dados utilizando o PDO.  Usando esta api é possivel persistir dados na base sem digitar sentenças sql, apagar registros sem digitar sentenças sql, bem como utilizar métodos que permitem utilização de queries mais avançadas.
+AgileQuery é uma simples api de persistência de dados. Esta api Abstrai a classe PDO e usa
+conceito de active record, dispensando assim, a necessidade do desenvolvedor
+redundantemente ficar setando configurações em suas consultas. Utilizando esta
+api, o desenvolvedor se preocupará mais com o desenvolvimento em si do que com as
+configurações do banco de dados.
 
-Muitas implementações serão feitas neste projeto, ele ainda é embrionário, mas já pode ser utilizado em projetos e 
-também modificado. 
-
-No repositório constam api e um modelo de implementação. Dando uma olhada no código é fácil de entender sua 
-implementação. 
+O repositório contém exemplo de implementação da api.
