@@ -31,11 +31,11 @@ class Conn {
 
 		$db = parse_ini_file($path_file . $name.".ini");
 
-		$this->host       = $db['host'];
-		$this->port       = $db['port'];
-		$this->user       = $db['user'];
-		$this->passwd     = $db['passwd'];
-		$this->type       = $db['type'];
+		$this->host = $db['host'];
+		$this->port = $db['port'];
+		$this->user = $db['user'];
+		$this->passwd = $db['passwd'];
+		$this->type = $db['type'];
 	}
 
 
