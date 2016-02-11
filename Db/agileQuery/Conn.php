@@ -23,7 +23,7 @@ class Conn {
 	 */
 	public function open($name) {
 
-		$path_file = ROOT . "Db/";
+		$path_file = "Db/";
 
 		if (!file_exists($path_file . $name.".ini")):
 			die('Arquivo $name não encontrado!');
@@ -36,6 +36,7 @@ class Conn {
 		$this->user = $db['user'];
 		$this->passwd = $db['passwd'];
 		$this->type = $db['type'];
+		$this->default_db = $db['default_db'];
 	}
 
 

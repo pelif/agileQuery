@@ -26,7 +26,7 @@ class SqlCmd {
 	 */
 	public static function SelectMount($entity, array $arr, $valids = null, array $order = null) {
 		self::$sql = "SELECT ";
-		$i         = 0;
+		$i = 0;
 		foreach ($arr as $key => $value) {
 			self::$sql .= ($i < sizeof($arr)-1)?"{$value},":"{$value}";
 			$i++;
@@ -49,7 +49,6 @@ class SqlCmd {
 	}
 
 
-
 	/**
 	 * @param string $entity
 	 * @param array $arr
@@ -58,7 +57,7 @@ class SqlCmd {
 	public static function InsertMount($entity, $arr) {
 
 		self::$sql = "INSERT INTO {$entity} ( ";
-		$i         = 0;
+		$i = 0;
 		foreach ($arr as $key => $value) {
 			self::$sql .= ($i < sizeof($arr)-1)?$key.", ":$key;
 			$i++;
@@ -83,7 +82,7 @@ class SqlCmd {
 	 */
 	public static function UpdateMount($entity, $arr, $valids) {
 		self::$sql = "UPDATE {$entity} SET ";
-		$i         = 0;
+		$i = 0;
 		foreach ($arr as $key => $value) {
 			self::$sql .= ($i < sizeof($arr)-1)?$key.' = :'.$key.', ':$key.' = :'.$key;
 			$i++;
@@ -107,7 +106,7 @@ class SqlCmd {
 	 */
 	public function DeleteMount($entity, $keys) {
 		self::$sql = "DELETE FROM {$entity} ";
-		$i         = 0;
+		$i = 0;
 		self::$sql .= "WHERE ";
 		foreach ($keys as $c => $v) {
 			self::$sql .= ($i < sizeof($keys)-1)?$c." = :".$c." AND ":$c." = :".$c;

@@ -5,8 +5,8 @@
  * @ author - Felipe Daniel
  *
  * AgileQuery é um api de persistência para agilização de processos de persistẽnica.
- * Como o próprio nome diz ágil - visa agilizar processos simples de persistência.
- * Foi desenvolvida para agilizar persistência e eliminar redundàncias como setar entidade
+ * Como o próprio nome diz - ágil - visa agilizar processos simples de persistência
+ * e eliminar redundàncias como setar entidade
  * , conexão e drivers
  * Esta Api abstrai a classe PDO
  */
@@ -15,7 +15,9 @@ namespace Db\agileQuery;
 
 use \PDO as PDO;
 
-class agileQuery extends Db\agileQuery\Conn
+use Db\agileQuery\Conn;
+
+class agileQuery extends Conn
 {
 
 	protected $entity;
@@ -41,10 +43,10 @@ class agileQuery extends Db\agileQuery\Conn
 	 * @return bool
 	 */
 	public function insert($arr) {
-		$this->setentity(get_class($this));
+		$this->setentity($this->default_db . '.' . get_class($this));
 		$dbh = $this->conn;
 		$sth = $dbh->prepare(\Db\agileQuery\SqlCmd::InsertMount($this->getentity(), $arr));
-		
+
 		if (is_array($arr)) {
 			foreach ($arr as $key => $value) {
 				$sth->bindValue(":".$key."", $value);
@@ -58,11 +60,11 @@ class agileQuery extends Db\agileQuery\Conn
 	/**
 	* @param string $entity
 	* @param array $arr
-	* @return bool
+	* @return boolean
 	*/
 	public function insertFree($entity, array $arr)
 	{
-		$this->setentity($entity);
+		$this->setentity($this->default_db . '.' . $entity);
 		$dbh = $this->conn;
 		$sth = $dbh->prepare(\Db\agileQuery\SqlCmd::InsertMount($entity, $arr));
 
@@ -83,10 +85,10 @@ class agileQuery extends Db\agileQuery\Conn
 	/**
 	 * @param array $fields
 	 * @param array $validKeys
-	 * @return bool
+	 * @return boolean
 	 */
 	public function update($fields, $validKeys) {
-		$this->setentity(get_class($this));
+		$this->setentity($this->default_db . '.' . get_class($this));
 		$dbh = $this->conn;
 		$sth = $dbh->prepare(\Db\agileQuery\SqlCmd::UpdateMount($this->getentity(), $fields, $validKeys));
 		if (is_array($fields)) {
@@ -110,7 +112,7 @@ class agileQuery extends Db\agileQuery\Conn
 	 * @return array
 	 */
 	public function simple_select(array $fields = null, array $validKey = null, array $order = null) {
-		$this->setentity(get_class($this));
+		$this->setentity($this->default_db . '.' . get_class($this));
 		$dbh = $this->conn;
 		$sth = $dbh->prepare(\Db\agileQuery\SqlCmd::SelectMount($this->getentity(), $fields, $validKey, $order));
 		$sth->execute();
@@ -128,7 +130,7 @@ class agileQuery extends Db\agileQuery\Conn
 	 * @return array
 	 */
 	public function simple_selectObj(array $fields = null, array $validKey = null, array $order = null) {
-		$this->setentity(get_class($this));
+		$this->setentity($this->default_db . '.' . get_class($this));
 		$dbh = $this->conn;
 		$sth = $dbh->prepare(\Db\agileQuery\SqlCmd::SelectMount($this->getentity(), $fields, $validKey, $order));
 		$sth->execute();
@@ -155,7 +157,7 @@ class agileQuery extends Db\agileQuery\Conn
 	/**
 	* @method query
 	* @param string $sql
-	* @return $out
+	* @return boolean
 	*/
 	public function query($sql)
 	{
@@ -170,7 +172,7 @@ class agileQuery extends Db\agileQuery\Conn
 	* @param array $validKey
 	*/
 	public function delete($validKey) {
-		$this->setentity(get_class($this));
+		$this->setentity($this->default_db . '.' . get_class($this));
 		$dbh = $this->conn;
 		$sth = $dbh->prepare(\Db\agileQuery\SqlCmd::DeleteMount($this->getentity(), $validKey));
 		if (is_array($validKey)) {
