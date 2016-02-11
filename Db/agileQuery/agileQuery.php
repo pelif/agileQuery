@@ -44,8 +44,7 @@ class agileQuery extends Db\agileQuery\Conn
 		$this->setentity(get_class($this));
 		$dbh = $this->conn;
 		$sth = $dbh->prepare(\Db\agileQuery\SqlCmd::InsertMount($this->getentity(), $arr));
-		//var_dump($dbh->prepare(SqlCmd::InsertMount($this->getentity(), $arr))); exit;
-
+		
 		if (is_array($arr)) {
 			foreach ($arr as $key => $value) {
 				$sth->bindValue(":".$key."", $value);

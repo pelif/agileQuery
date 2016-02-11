@@ -31,8 +31,9 @@ class SqlCmd {
 			self::$sql .= ($i < sizeof($arr)-1)?"{$value},":"{$value}";
 			$i++;
 		}
+
 		self::$sql .= " from {$entity} ";
-		//self::$sql .= " from ".get_class($this);
+
 		if (is_array($valids)) {
 			self::$sql .= " WHERE ";
 			$i = 0;
@@ -55,7 +56,7 @@ class SqlCmd {
 	 * @return string
 	 */
 	public static function InsertMount($entity, $arr) {
-		//$this->sql = "INSERT INTO ".get_class($this)." ( ";
+
 		self::$sql = "INSERT INTO {$entity} ( ";
 		$i         = 0;
 		foreach ($arr as $key => $value) {

@@ -26,7 +26,6 @@ class Conn {
 		$path_file = ROOT . "Db/";
 
 		if (!file_exists($path_file . $name.".ini")):
-			//throw new Excepcion("Arquivo $name não encontrado!");
 			die('Arquivo $name não encontrado!');
 		endif;
 
