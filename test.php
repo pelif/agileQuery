@@ -1,5 +1,10 @@
 <?php
 
+/**
+* @author Felipe Daniel
+* @date 19/12/2016
+*/
+
 require_once "Db/agileQuery/SqlCmd.php";
 require_once "Db/agileQuery/Conn.php";
 require_once "Db/agileQuery/agileQuery.php";
